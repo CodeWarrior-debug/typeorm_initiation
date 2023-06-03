@@ -1,5 +1,6 @@
 import { AppDataSource } from "./data-source"
 import { User } from "./entity/User"
+import { Quote } from "./entity/Quote"
 
 AppDataSource.initialize().then(async () => {
 
@@ -10,8 +11,24 @@ AppDataSource.initialize().then(async () => {
         // user.lastName = "Appleseed"
         // user.age = 99
 
-    // await AppDataSource.manager.save(user)
+        
 
+        
+        // await AppDataSource.manager.save(user)
+
+        console.log('about to sync quote');
+        
+        const quote = new Quote()
+        quote.quotation = "The only thing we have to fear is fear itself."
+        quote.tags = ['hero', 'war', 'history' , 'WWII']
+        quote.agree = true;
+        quote.source_details = {
+            voicer: 'Franklin Delano Roosevelt',
+            source_type: 'book',
+            pct_attribution_confidence: 100,
+            source_specifics: {my_object: 'looks so nice!'}
+        }
+        await AppDataSource.manager.save(quote)
 
     
     // console.log("Saved a new user with id: " + user.id)
@@ -33,7 +50,16 @@ AppDataSource.initialize().then(async () => {
     .where("user.firstName = :firstName", { firstName: "Johnny"})
     .getMany();
 
+    // TODO - figure out relation query builder
+
+    // const franklinQuote = await AppDataSource.manager
+    // .createQueryBuilder(Quote,'quote')
+    // .relation(Quote, "agree")
+    // .of(id)
+    // .loadMany();
+
   console.log("finding 'Johnny'",  johnnyReturns)
+//   console.log("FDR quote details",  franklinQuote)
 
     
     // await AppDataSource.manager.delete(User,"user");
