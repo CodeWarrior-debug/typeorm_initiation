@@ -1,18 +1,37 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { UserSex } from "./enums";
+
+// export type LivingStyle = "philosophical" | "religious" | "moral" | "aesthetic";
 
 @Entity()
 export class User {
 
-    @PrimaryGeneratedColumn()
-    id: number
+  // DIGITAL VALUES
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    firstName: string
+  // PERSONAL - FIXED, GOVERNMENT PASSPORT VALUES
+  @Column()
+  firstName: string;
+  @Column()
+  lastName: string;
+  @Column({unique:true})
+  userName: string;
+  
+  @Column({type: "date"})
+  dateOfBirth: Date;
 
-    @Column()
-    lastName: string
 
-    @Column()
-    age: number
 
+  // CONTACT VALUES
+    // @Column({type: "bigint"})
+    // phoneNumber: number;
+  @Column()
+  email: string;
+
+  // CUSTOM VALUES
+  // @Column({ type: "enum", enum: ["philosophical", "religious", "moral", "aesthetic"], default: "aesthetic" })
+  // lifestyle: LivingStyle;
+  @Column({ type: "enum", enum: UserSex, default: UserSex.NOT_SPECIFIED })
+  sex: UserSex;
 }
