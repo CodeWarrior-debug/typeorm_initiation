@@ -9,8 +9,9 @@ import { PrimaryGeneratedColumn, Entity, Column } from "typeorm";
 
 @Entity()
 export class Quote {
-  @PrimaryGeneratedColumn("uuid")
-  id: string;
+  // @PrimaryGeneratedColumn("uuid")
+  @PrimaryGeneratedColumn()
+  id: number;
 
   @Column()
   quotation: string;
@@ -18,14 +19,12 @@ export class Quote {
   @Column("simple-array")
   tags: string[];
 
-  @Column("simple-array")
-  agree: boolean;
-
   @Column("simple-json")
   source_details: {
     voicer: string;
     source_type: string;
     pct_attribution_confidence: number; // 0 to 100
+    source_id: number;
     source_specifics: object; //will this work?
   };
 }

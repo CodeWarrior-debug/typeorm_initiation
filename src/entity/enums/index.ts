@@ -10,3 +10,10 @@ export enum UserSex {
     OTHER = "other",
     NOT_SPECIFIED = "not specified",
 }
+
+export enum AgreementStatus {
+    AGREE="agree",
+    DISAGREE="disagree",
+    UNSURE="unsure",
+    NOT_SPECIFIED="not specified",
+}

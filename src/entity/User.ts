@@ -17,11 +17,8 @@ export class User {
   lastName: string;
   @Column({unique:true})
   userName: string;
-  
   @Column({type: "date"})
   dateOfBirth: Date;
-
-
 
   // CONTACT VALUES
     // @Column({type: "bigint"})
