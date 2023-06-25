@@ -13,7 +13,7 @@ export class Quote {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({unique:true})
   quotation: string;
 
   @Column("simple-array")
