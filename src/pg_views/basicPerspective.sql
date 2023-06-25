@@ -1,3 +1,4 @@
+-- Active: 1687664042501@@127.0.0.1@5432@auto@public
 
 SELECT u."userName" AS "USERNAME", q.quotation AS "QUOTATION", uqe.agreement AS "AGREEMENT"
 FROM public."user" u
