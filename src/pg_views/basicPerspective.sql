@@ -6,4 +6,6 @@ LEFT JOIN public.user_quote_eval uqe
 ON uqe.user_id = u.id
 LEFT JOIN public."quote" q
 ON q.id = uqe.quote_id
-ORDER BY u."userName", q.quotation
+WHERE u."userName" = 'forHimAndHis'  
+//TODO  make this userid later
+-- ORDER BY u."userName", q.quotation

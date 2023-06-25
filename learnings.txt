@@ -5,6 +5,9 @@ Following the instructions at https://typeorm.io/
 
     postgres - use single quotes as opposed to double quotes to indicate values in a column
 
+    ex. WHERE username = 'forHimAndHis' vs. WHERE username = "forHimAndHis"
+    
+
     
 
 
